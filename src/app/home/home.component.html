@@ -1,0 +1,27 @@
+<div class="home">
+  <div class="home__content content-home">
+    <div class="content-home__container _container _flex _gap-32">
+      <app-sidebar />
+      <app-banner class="_swiper"/>
+    </div>
+  </div>
+  <div class="home__products products-home">
+    <div class="products-home__container _container">
+      <app-products
+        *ngIf="ProductsByCategory1.length > 0"
+        [products]="ProductsByCategory1"
+        [title]="ProductsByCategory1[0].category_name"
+      />
+      <app-products
+        *ngIf="ProductsByCategory2.length > 0"
+        [products]="ProductsByCategory2"
+        [title]="ProductsByCategory2[0].category_name"
+      />
+      <app-products
+        *ngIf="ProductsByCategory3.length > 0"
+        [products]="ProductsByCategory3"
+        [title]="ProductsByCategory3[0].category_name"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+.sidebar-content {
+  width: 200px;
+}
+
+.sidebar-content__title {
+  padding: 16px 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.sidebar-content__item {
+  padding: 5px 0;
+  font-size: 18px;
+  line-height: 24px;
+  transition: transform 0.5s ease 0s;
+}
+.sidebar-content__item::before {
+  content: '·';
+  display: inline-block;
+  transform: translateX(-5px);
+  visibility: hidden;
+}
+@media(min-width: 992px) {
+  .sidebar-content__item:hover {
+    transform: translateX(10px);
+  }
+  .sidebar-content__item:hover::before {
+    visibility: visible;
+  }
+}
+
+@media(max-width: 768px) {
+  .sidebar-content {
+    text-align: center;
+  }
+}

@@ -1,0 +1,16 @@
+<li class="cart__item">
+  <a class="cart__image _flex _jc-c _ai-c"><img src="{{ 'data:image/jpeg;base64,' + item.preview }}" alt=""></a>
+  <div class="cart__info _flex _fd-c _gap-12">
+    <a class="cart__title">{{ item.name }}</a>
+    <div class="cart__description">{{ item.description }}</div>
+  </div>
+  <div class="cart__actions _flex _fd-c _gap-12">
+    <div class="cart__quantity _flex _ai-c _gap-12">
+      <button (click)="decrement()" class="cart__dec _button">-</button>
+      <div class="_button">{{ getQuantity() }}</div>
+      <button (click)="increment()" class="cart__inc _button">+</button>
+    </div>
+    <button (click)="addToCart()" class="cart__remove _button">Save</button>
+    <button (click)="removeItem()" class="cart__remove _button">Remove</button>
+  </div>
+</li>

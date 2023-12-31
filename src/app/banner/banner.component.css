@@ -1,0 +1,10 @@
+.banner-content swiper-slide {
+  max-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.banner-content img {
+  width: 100%;
+  object-fit: cover;
+}

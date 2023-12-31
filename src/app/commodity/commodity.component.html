@@ -1,0 +1,32 @@
+<div *ngIf="product" class="commodity">
+  <div class="message-box"><span>{{ message }}</span></div>
+  <div class="error-box">
+    <div>
+      <div>You not authorized! To shop you must be authorized! Would you like to register?</div>
+      <a routerLink="/account" class="_button">Registration</a>
+    </div>
+  </div>
+  <div class="commodity__container _container _flex _fd-c _gap-18">
+    <div class="commodity__images"><img src="{{ 'data:image/jpeg;base64,' + product.preview }}" alt=""></div>
+    <div class="commodity__content _flex _gap-18">
+      <div class="commodity__block _flex _fd-c _gap-12">
+        <div class="commodity__title">{{ product.name }}</div>
+        <div class="commodity__description">{{ product.description }}</div>
+        <div class="commodity__price">{{ product.price + ' USD' }}</div>
+      </div>
+      <div class="commodity__block _flex _fd-c _gap-12 _ai-c">
+        <div class="commodity__quantity _flex _gap-8">
+          <button (click)="decrement()" class="quantity__dec _button">-</button>
+          <div class="quantity__input _button">{{ quantity }}</div>
+          <button (click)="increment()" class="quantity__inc _button">+</button>
+        </div>
+        <button (click)="addToCart()" class="commodity__button _button">Add to cart</button>
+      </div>
+    </div>
+    <div class="commodity__block _flex _fd-c _gap-12">
+      <h2 class="commodity__title">Description</h2>
+      <p class="commodity__description">{{ product.description }}</p>
+      <p class="commodity__description">{{ product.text }}</p>
+    </div>
+  </div>
+</div>

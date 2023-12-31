@@ -1,0 +1,68 @@
+<div class="me">
+  <div class="me__user user-me">
+    <div class="me__container _container _flex _gap-64">
+      <form class="form__body">
+        <div class="form__title">Your credentials</div>
+        <div [classList]="(user.errors.username.invalid && user.errors.username.dirty) ? '_invalid' : ''">
+          <label for="username">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            placeholder="Your name"
+            [(ngModel)]="user.username"
+            [ngModelOptions]="{standalone: true}" 
+            (blur)="user.validateUsername()"
+          >
+          <ul *ngIf="user.errors.username.invalid && user.errors.username.dirty">
+            <li *ngIf="user.errors.username.invalid">{{ user.errors.username.errors.invalid }}</li>
+            <li *ngIf="!user.errors.username.required">{{ user.errors.username.errors.required }}</li>
+          </ul>
+        </div>
+        <div [classList]="(user.errors.email.invalid && user.errors.email.dirty) ? '_invalid' : ''">
+          <label for="email">E-Mail</label>
+          <input
+            type="text"
+            id="email"
+            placeholder="Your e-mail"
+            [(ngModel)]="user.email"
+            [ngModelOptions]="{standalone: true}"
+            (blur)="user.validateEmail()"
+          >
+          <ul *ngIf="user.errors.email.invalid && user.errors.email.dirty">
+            <li *ngIf="user.errors.email.invalid">{{ user.errors.email.errors.invalid }}</li>
+            <li *ngIf="!user.errors.email.required">{{ user.errors.email.errors.required }}</li>
+            <li *ngIf="!user.errors.email.email">{{ user.errors.email.errors.email }}</li>
+          </ul>
+        </div>
+        <button class="form__button _button">Update</button>
+      </form>
+      <div class="me__info">
+        <div class="form__title">Others</div>
+        <ol class="me__about _flex _fd-c _gap-18">
+          <li class="_flex _gap-12">
+            <span>Our privacy policy:</span>
+            <a class="_blue" href="#">Privacy-policy-webt.shop</a>
+          </li>
+          <li class="_flex _gap-12">
+            <a class="_blue" href="#">Developers</a>
+          </li>
+        </ol>
+        <div class="form__title">Recovery</div>
+        <div class="password__recovery _flex _fd-c _gap-18">
+          <span>If you forgot or lost your password click on link: <a class="_blue" href="#">Password recovery</a>, and do actions that needed.</span>
+          <span>You have another problem? Contact Us: <a class="_blue" href="#">Support</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!isAdmin" class="me__cart">
+    <div class="me__container _container">
+      <div class="form__title">Cart</div>
+      <div class="cart">
+        <ol class="cart__items _flex _fd-c _gap-18">
+          <app-cart-item *ngFor="let item of cartItems" [item]="item" (cartEvent)="setCart($event)" />
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>

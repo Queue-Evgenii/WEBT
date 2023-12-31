@@ -1,0 +1,122 @@
+.header-page {
+  padding: 20px 0;
+}
+.header-page__container {
+  height: 40px;
+}
+.header-page__logo img {
+  max-height: 40px;
+  width: auto;
+  transform: scale(1.3);
+}
+.header-page__account img {
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+}
+.header-page__account span {
+  font-size: 24px;
+  line-height: 1.2;
+}
+.header-page__menu {
+  flex: 0 1 auto;
+  font-size: 24px;
+  line-height: 1.2;
+}
+.footer-page__top,
+.footer-page__bottom {
+  border-top: 1px solid #c3c3c3;
+}
+.footer-page__top {
+  font-size: 18px;
+  line-height: 1.2;
+  padding: 24px 0;
+}
+.footer-page__top span {
+  font-weight: 700;
+}
+.footer-page__top a::before {
+  content: '';
+  display: inline-block;
+}
+@keyframes moveIcon {
+  0%, 100% {
+      transform: rotate(0);
+  }
+  33.333% {
+    transform: rotate(5deg);
+  }
+  66.666% {
+    transform: rotate(-5deg);
+  }
+}
+.footer-page__mail::before {
+  width: 24px;
+  height: 18px;
+  background: url('../assets/img/icons/email.png') center no-repeat;
+}
+.footer-page__phone::before {
+  width: 17px;
+  height: 29px;
+  background: url('../assets/img/icons/phone.png') center no-repeat;
+}
+.footer-page__bottom {
+  padding: 24px 0;
+}
+
+.burger-icon {
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 30px;
+}
+
+.burger-icon .bar {
+  background-color: #333;
+  flex: 0 0 2px;
+  width: 100%;
+  margin: 4px 0;
+  transition: transform 0.5s ease 0s;
+}
+
+.burger-icon._active .bar:first-child {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.burger-icon._active .bar:nth-child(2) {
+  transform: scale(0);
+}
+
+.burger-icon._active .bar:last-child {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.burger-body {
+  position: absolute;
+  padding: 20px 0 40px 0;
+  width: 100vw;
+  background: linear-gradient(90deg, rgba(253,250,250,1) 0%, rgba(255,239,239,1) 100%);
+  transform: translateY(-200%);
+  transition: transform 0.5s ease 0s;
+}
+.burger-body._active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .burger-icon {
+    display: flex;
+  }
+  header .header-page__menu,
+  .header-page__account span {
+    display: none;
+  }
+}
+
+@media (min-width: 993px) {
+  .footer-page__top a:hover::before {
+    animation: moveIcon 0.5s;
+  }
+}

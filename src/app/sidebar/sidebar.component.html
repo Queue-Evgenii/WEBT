@@ -1,0 +1,10 @@
+<aside class="sidebar-content">
+  <div class="sidebar-content__title">{{ categoriesTitle }}</div>
+  <nav class="sidebar-content__navigation">
+    <ul class="sidebar-content__list _flex _fd-c _gap-12">
+      <li *ngFor="let item of categories" class="sidebar-content__item">
+        <a [routerLink]="['/catalog', item.id]">{{ item.name }}</a>
+      </li>
+    </ul>
+  </nav>
+</aside>

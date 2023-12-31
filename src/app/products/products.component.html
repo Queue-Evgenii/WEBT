@@ -1,0 +1,8 @@
+<div class="products _flex _fd-c _gap-32">
+  <div class="products__title">{{ title }}</div>
+  <ul class="products__list _gap-32">
+    <li *ngFor="let product of products" class="products__item">
+      <app-product [product]="product"></app-product>
+    </li>
+  </ul>
+</div>

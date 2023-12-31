@@ -1,0 +1,10 @@
+<div class="catalog">
+  <div class="content-home__container _container _flex _gap-32">
+    <app-sidebar />
+    <app-banner class="_swiper"/>
+  </div>
+  <div class="products-home__container _container">
+    <app-products *ngIf="products.length > 0" [products]="products" [title]="title"/>
+    <div *ngIf="products.length == 0" class="elements-not-found">Not contain products yet</div>
+  </div>
+</div>

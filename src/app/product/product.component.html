@@ -1,0 +1,10 @@
+<div class="product _flex _fd-c _gap-12">
+  <a [routerLink]="['/product', product.id]" class="product__image _pointer">
+    <img src="{{ 'data:image/jpeg;base64,' + product.preview }}" alt="">
+  </a>
+  <div class="product__title _pointer">{{ product.name }}</div>
+  <footer class="product__footer _flex _jc-sb _ai-c _gap-12">
+    <div class="product__price">{{ product.price + ' USD' }}</div>
+    <button [routerLink]="['/product', product.id]" class="product__button _button">Add to cart</button>
+  </footer>
+</div>
